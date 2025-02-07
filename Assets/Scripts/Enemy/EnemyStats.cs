@@ -5,9 +5,14 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public EnemyScriptableObjects enemyData;
-    float currentMoveSpeed;
-    float currentHealth;
-    float currentDamage;
+
+    //Current stats
+    [HideInInspector]
+    public float currentMoveSpeed;
+    [HideInInspector]
+    public float currentHealth;
+    [HideInInspector]
+    public float currentDamage;
 
     private void Awake()
     {
@@ -28,5 +33,14 @@ public class EnemyStats : MonoBehaviour
     public void Death()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
+            player.TakeDamage(currentDamage);
+        }
     }
 }
