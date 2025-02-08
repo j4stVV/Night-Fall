@@ -6,6 +6,7 @@ public class PlayerCollector : MonoBehaviour
 {
     PlayerStats player;
     CircleCollider2D playerCollector;
+    public float pullSpeed; 
     void Start()
     {
         player = FindObjectOfType<PlayerStats>();
@@ -20,6 +21,14 @@ public class PlayerCollector : MonoBehaviour
     {
         if (col.TryGetComponent(out ICollectible collectible))
         {
+            //Pulling animation
+            //Gets the rigidbody 2D component on the item
+            Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
+            //Vector2 pointing from the item to the player
+            Vector2 forceDirection = (transform.position - col.transform.position).normalized;  
+            //Applies force to the item in the forceDirection with pullSpeed
+            rb.AddForce(forceDirection * pullSpeed);
+
             collectible.Collect();
         }
     }
