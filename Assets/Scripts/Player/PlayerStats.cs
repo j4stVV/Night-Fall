@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public CharacterScriptableObject characterData;
+    CharacterScriptableObject characterData;
 
     //Current Stats
     [HideInInspector]
@@ -20,6 +20,9 @@ public class PlayerStats : MonoBehaviour
     public float currentProjectileSpeed;
     [HideInInspector]
     public float currentMagnet;
+
+    //Spawned weapon
+    public List<GameObject> spawnedWeapons;
 
     //Experience and level of the player
     [Header("Experience/Level")]
@@ -44,12 +47,19 @@ public class PlayerStats : MonoBehaviour
     bool isInvicible;
     void Awake()
     {
+        characterData = CharacterSelector.GetData();
+        CharacterSelector.Instance.DestroySingleton();
+
+        //Assign the variables 
         currentHealth = characterData.MaxHealth;
         currentRecovery = characterData.Recovery;
         currentMight = characterData.Might;
         currentMoveSpeed = characterData.MoveSpeed;
         currentProjectileSpeed = characterData.ProjectileSpeed;
         currentMagnet = characterData.Magnet;
+
+        //Spawn the starting weapons
+        SpawnWeapon(characterData.StartingWeapon);
     }
 
     void Start()
@@ -142,5 +152,13 @@ public class PlayerStats : MonoBehaviour
                 currentHealth = characterData.MaxHealth;
             }
         }
+    }
+
+    public void SpawnWeapon(GameObject weapon)
+    {
+        //Spawn the starting weapon
+        GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        spawnedWeapon.transform.SetParent(transform); //set the weapon to a child of the player
+        spawnedWeapons.Add(spawnedWeapon); //Add it to the list of spawned weapon
     }
 }
