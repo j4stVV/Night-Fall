@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aefa2c38cc48145ab8d4946592a0bb, type: 3}
   m_Name: KnifeCharacter
   m_EditorClassIdentifier: 
+  icon: {fileID: -551044645, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
+  name: Nero the Knife
   startingWeapon: {fileID: 3908858164264678206, guid: c2edb054e7580bf4a9cafea5dd840cad, type: 3}
-  maxHealth: 1000
+  maxHealth: 10
   recovery: 1
   moveSpeed: 5
   might: 1
-  projectileSpeed: 0
+  projectileSpeed: 1
   magnet: 1.6

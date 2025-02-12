@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aefa2c38cc48145ab8d4946592a0bb, type: 3}
   m_Name: GarlicCharacter
   m_EditorClassIdentifier: 
+  icon: {fileID: -551044645, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
+  name: Nero the Garlic
   startingWeapon: {fileID: 2380222051938074715, guid: 463da88d6fe27bd419951f3d52c3e20d, type: 3}
-  maxHealth: 1000
+  maxHealth: 10
   recovery: 1
   moveSpeed: 5
   might: 1
-  projectileSpeed: 0
+  projectileSpeed: 1
   magnet: 1.6

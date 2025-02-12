@@ -62,6 +62,10 @@ public class EnemyStats : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!gameObject.scene.isLoaded)
+        {
+            return;
+        }
         EnemySpawner es = FindObjectOfType<EnemySpawner>();
         es.OnEnemyKilled();
     }
