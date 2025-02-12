@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.16895574, y: -0.043545306}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6620885, y: 0.648154}
   m_EdgeRadius: 0
 --- !u!114 &8642257165634110144
 MonoBehaviour:
@@ -160,4 +160,4 @@ MonoBehaviour:
   drops:
   - name: Red Potion
     itemPrefab: {fileID: 882188590065526259, guid: 753daba3784ff7249b1c3fd504165ddf, type: 3}
-    dropRate: 70
+    dropRate: 50
