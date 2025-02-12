@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5af1c08712e1b34ea160a9484649333, type: 3}
-  m_Name: Spinach Passive Item
+  m_Name: Wing Passive Item
   m_EditorClassIdentifier: 
-  multipler: 100
+  multipler: 50
+  level: 1
+  nextLevelPrefab: {fileID: 2335254397286194341, guid: 754585c6f94fe9a42a724957d881540e, type: 3}
+  icon: {fileID: 779944239, guid: 9aa8bb56f16764c4a80c7a5e7d3f7543, type: 3}
