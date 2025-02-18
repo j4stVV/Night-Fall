@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: -551044645, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
   name: Nero the Knife
   startingWeapon: {fileID: 3908858164264678206, guid: c2edb054e7580bf4a9cafea5dd840cad, type: 3}
-  maxHealth: 10
+  maxHealth: 1000
   recovery: 1
   moveSpeed: 5
   might: 1

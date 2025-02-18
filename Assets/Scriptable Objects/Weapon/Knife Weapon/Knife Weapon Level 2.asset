@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f9a17a3c1a114186c447d562a40a3, type: 3}
   m_Name: Knife Weapon Level 2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5346398451770433865, guid: 318be41b97bd03d449ee009319766f4f, type: 3}
+  prefab: {fileID: 5346398451770433865, guid: dde45b7bddcbe94439d6ff6787c0fb47, type: 3}
   damage: 5
   speed: 15
   cooldownDuration: 2
   pierce: 1
   level: 2
   nextLevelPrefab: {fileID: 0}
+  name: Knife Level 2
+  description: Speed is up by 50%
   icon: {fileID: -1264491071, guid: 9aa8bb56f16764c4a80c7a5e7d3f7543, type: 3}

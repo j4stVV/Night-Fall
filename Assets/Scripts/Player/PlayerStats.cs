@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     CharacterScriptableObject characterData;
@@ -137,6 +138,12 @@ public class PlayerStats : MonoBehaviour
     public float invicibilityDuration;
     float invicibilityTimer;
     bool isInvicible;
+
+    [Header("UI")]
+    public Image healthBar;
+    public Image expBar;
+    public TextMeshProUGUI levelText;
+
     void Awake()
     {
         characterData = CharacterSelector.GetData();
@@ -154,9 +161,9 @@ public class PlayerStats : MonoBehaviour
 
         //Spawn the starting weapons
         SpawnWeapon(characterData.StartingWeapon);
-        SpawnWeapon(secondWeapon);
-        SpawnPassiveItem(firstPassiveItem);
-        SpawnPassiveItem(secondPassiveItem);
+        //SpawnWeapon(secondWeapon);
+        //SpawnPassiveItem(firstPassiveItem);
+        //SpawnPassiveItem(secondPassiveItem);
     }
 
     void Start()
@@ -164,6 +171,10 @@ public class PlayerStats : MonoBehaviour
         experienceCap = levelRanges[0].experienceCapIncrease;
 
         GameManager.Instance.AssignChosenCharacterUI(characterData);
+
+        UpdateHealthBar();
+        UpdateExpBar();
+        UpdateLevelText();
     }
     void Update()
     {
@@ -183,6 +194,8 @@ public class PlayerStats : MonoBehaviour
         experience += amount;
 
         LevelUpChecker();
+
+        UpdateExpBar();
     }
 
     void LevelUpChecker()
@@ -202,7 +215,21 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             experienceCap += experienceCapIncrease;
+
+            UpdateLevelText();
+
+            GameManager.Instance.StartLevelUp();
         }
+    }
+
+    void UpdateExpBar()
+    {
+        expBar.fillAmount = (float)experience / experienceCap;
+    }
+
+    void UpdateLevelText()
+    {
+        levelText.text = "LV" + level.ToString();
     }
 
     public void TakeDamage(float damage)
@@ -218,9 +245,15 @@ public class PlayerStats : MonoBehaviour
             {
                 Death();
             }
+
+            UpdateHealthBar();
         }  
     }
 
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = currentHealth / characterData.MaxHealth;
+    }
     public void Death()
     {
         if (!GameManager.Instance.isGameOver)
@@ -273,7 +306,8 @@ public class PlayerStats : MonoBehaviour
         inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponController>());
 
         weaponIndex++;
-    }public void SpawnPassiveItem(GameObject passiveItem)
+    }
+    public void SpawnPassiveItem(GameObject passiveItem)
     {
         if (passiveItemIndex >= inventory.passiveItemSlots.Count - 1)
         {
