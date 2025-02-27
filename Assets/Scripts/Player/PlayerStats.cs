@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
     float currentMight;
     float currentProjectileSpeed;
     float currentMagnet;
-
+    #region Player Stats Property
     public float CurrentHealth
     {
         get { return currentHealth; }
@@ -108,6 +108,8 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
+    #endregion
+    public ParticleSystem damageEffect;
 
     //Experience and level of the player
     [Header("Experience/Level")]
@@ -237,6 +239,8 @@ public class PlayerStats : MonoBehaviour
         if (!isInvicible)
         {
             CurrentHealth -= damage;
+            
+            if (damageEffect) Instantiate(damageEffect, transform.position, Quaternion.identity );
 
             invicibilityTimer = invicibilityDuration;
             isInvicible = true;
@@ -275,7 +279,7 @@ public class PlayerStats : MonoBehaviour
                 CurrentHealth = characterData.MaxHealth;
             }
         }
-
+        UpdateHealthBar();
     }
 
     void Recover()

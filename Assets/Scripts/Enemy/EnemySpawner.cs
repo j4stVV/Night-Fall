@@ -32,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
     public int maxEnemiesAllowed;
     public bool maxEnemiesReached = false;
     public float waveInterval;
+    bool isWaveActive = false;
+
 
     [Header("Spawn potitions")]
     public List<Transform> relativesSpawnPoints; //A list to store all the relative spawn points
@@ -45,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
-        if (currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0)
+        if (currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0 && !isWaveActive)
         {
             StartCoroutine(BeginNextWave());
         }
@@ -62,10 +64,13 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator BeginNextWave()
     {
+        isWaveActive = true;
+
         yield return new WaitForSeconds(waveInterval);
 
         if (currentWaveCount < waves.Count - 1)
         {
+            isWaveActive = false;
             currentWaveCount++;
             CalculateWaveQuota();
         }
@@ -91,34 +96,35 @@ public class EnemySpawner : MonoBehaviour
             {
                 //Check if the minium number of enemies of this type have been spawned
                 if (enemyGroup.spawnCount < enemyGroup.enemyCount)
-                {
-                    if (enemiesAlive >= maxEnemiesAllowed)
-                    {
-                        maxEnemiesReached = true;
-                        return;
-                    }
-
+                {   
                     //Spawn the enemy at a random position close to the player
                     Instantiate(enemyGroup.enemyPrefab, player.position + relativesSpawnPoints[Random.Range(0, relativesSpawnPoints.Count)].position, Quaternion.identity);  
 
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawnCount++;
                     enemiesAlive++;
+
+                    if (enemiesAlive >= maxEnemiesAllowed)
+                    {
+                        maxEnemiesReached = true;
+                        return;
+                    }
+
                 }
             }
         }
 
-        //reset the maxEnemiesReached flag if the number of enemies alive has dropped below the maximum amount 
-        if (enemiesAlive < maxEnemiesAllowed)
-        {
-            maxEnemiesReached = false;
-        }
     }
     
     //call this function when an enemy is killed
     public void OnEnemyKilled()
     {
         enemiesAlive--;
+        //reset the maxEnemiesReached flag if the number of enemies alive has dropped below the maximum amount 
+        if (enemiesAlive < maxEnemiesAllowed)
+        {
+            maxEnemiesReached = false;
+        }
     }
 
 }

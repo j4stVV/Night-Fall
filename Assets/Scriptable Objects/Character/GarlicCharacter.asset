@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: -551044645, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
   name: Nero the Garlic
   startingWeapon: {fileID: 2380222051938074715, guid: 463da88d6fe27bd419951f3d52c3e20d, type: 3}
-  maxHealth: 1000
+  maxHealth: 100
   recovery: 1
   moveSpeed: 5
   might: 1
