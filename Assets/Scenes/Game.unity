@@ -626,9 +626,9 @@ RectTransform:
   - {fileID: 1254101221}
   m_Father: {fileID: 347026983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -556.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93200364
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1710,16 +1710,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274856407}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2129243913}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -80}
+  m_AnchoredPosition: {x: 960, y: 1000}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &336880084
@@ -2205,7 +2205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &433843273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2932,9 +2932,9 @@ RectTransform:
   - {fileID: 1644064235}
   m_Father: {fileID: 347026983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -768.75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606674328
@@ -3607,8 +3607,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1243629744}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &760030244
@@ -4878,9 +4877,9 @@ RectTransform:
   - {fileID: 382246617}
   m_Father: {fileID: 347026983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -343.75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121749224
@@ -5171,7 +5170,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -5221,7 +5220,7 @@ GameObject:
   - component: {fileID: 1151722867}
   - component: {fileID: 1151722868}
   - component: {fileID: 1151722869}
-  - component: {fileID: 1151722870}
+  - component: {fileID: 1151722871}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5431,6 +5430,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106da0fce33bb1d47b4c4b5b3e059e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseStats:
+    maxHealth: 0
+    recovery: 0
+    moveSpeed: 0
+    might: 0
+    speed: 0
+    magnet: 0
+  actualStats:
+    maxHealth: 0
+    recovery: 0
+    moveSpeed: 0
+    might: 0
+    speed: 0
+    magnet: 0
   damageEffect: {fileID: 2214261429624968663, guid: 302d8440bb4a9fd4f8b1771bbdc8c3ba, type: 3}
   experience: 0
   level: 1
@@ -5444,14 +5457,11 @@ MonoBehaviour:
     experienceCapIncrease: 200
   weaponIndex: 0
   passiveItemIndex: 0
-  firstPassiveItem: {fileID: 2335254397286194341, guid: ec02498c7b724d14d8178153c7d9c4f8, type: 3}
-  secondPassiveItem: {fileID: 6171870123727778456, guid: 29576fd7019519d45aae8b4b7340cbaf, type: 3}
-  secondWeapon: {fileID: 2380222051938074715, guid: 463da88d6fe27bd419951f3d52c3e20d, type: 3}
   invicibilityDuration: 0.5
   healthBar: {fileID: 1257874024}
   expBar: {fileID: 1137961999}
   levelText: {fileID: 1664879406}
---- !u!114 &1151722870
+--- !u!114 &1151722871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5460,53 +5470,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 1151722861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7e7d4b14ea3144f8136c0ffb418fc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7af9a08bd3e3aa44e814bc0ca47c692e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  weaponLevels: 000000000000000000000000000000000000000000000000
-  weaponUISlots:
-  - {fileID: 1868510129}
-  - {fileID: 1534430359}
-  - {fileID: 1601879055}
-  - {fileID: 547326604}
-  - {fileID: 1565342307}
-  - {fileID: 1279854664}
-  passiveItemSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  passiveItemLevels: 000000000000000000000000000000000000000000000000
-  passiveItemUISlots:
-  - {fileID: 626743359}
-  - {fileID: 805938373}
-  - {fileID: 1013300739}
-  - {fileID: 1866520430}
-  - {fileID: 2108497239}
-  - {fileID: 1187599656}
-  weaponUpgradeOptions:
-  - weaponUpgradeIndex: 0
-    initialWeapon: {fileID: 3908858164264678206, guid: c2edb054e7580bf4a9cafea5dd840cad, type: 3}
-    weaponData: {fileID: 11400000, guid: a29b1b7456f9bd441ab293b5d294ffa7, type: 2}
-  - weaponUpgradeIndex: 1
-    initialWeapon: {fileID: 2380222051938074715, guid: 463da88d6fe27bd419951f3d52c3e20d, type: 3}
-    weaponData: {fileID: 11400000, guid: 862e35ccf21591d49b3237b9f5453c5f, type: 2}
-  passiveItemUpgradeOptions:
-  - passiveItemUpgradeIndex: 0
-    initialPassiveItem: {fileID: 2335254397286194341, guid: ec02498c7b724d14d8178153c7d9c4f8, type: 3}
-    passiveItemData: {fileID: 11400000, guid: 07ed320932b98ad43b7636e8c55822d3, type: 2}
-  - passiveItemUpgradeIndex: 1
-    initialPassiveItem: {fileID: 6171870123727778456, guid: 29576fd7019519d45aae8b4b7340cbaf, type: 3}
-    passiveItemData: {fileID: 11400000, guid: fb84cd751c624804eb2059bab79de7cb, type: 2}
+  - item: {fileID: 0}
+    image: {fileID: 1868510129}
+  - item: {fileID: 0}
+    image: {fileID: 1534430359}
+  - item: {fileID: 0}
+    image: {fileID: 1601879055}
+  - item: {fileID: 0}
+    image: {fileID: 547326604}
+  - item: {fileID: 0}
+    image: {fileID: 1565342307}
+  - item: {fileID: 0}
+    image: {fileID: 1279854664}
+  passiveSlots:
+  - item: {fileID: 0}
+    image: {fileID: 626743359}
+  - item: {fileID: 0}
+    image: {fileID: 805938373}
+  - item: {fileID: 0}
+    image: {fileID: 1013300739}
+  - item: {fileID: 0}
+    image: {fileID: 1866520430}
+  - item: {fileID: 0}
+    image: {fileID: 2108497239}
+  - item: {fileID: 0}
+    image: {fileID: 1187599656}
+  availableWeapons:
+  - {fileID: 11400000, guid: a3956102b9edb6042b0bd57d708947e6, type: 2}
+  - {fileID: 11400000, guid: b2a3ef0d9c8874849929192b62e2040e, type: 2}
+  availablePassives:
+  - {fileID: 11400000, guid: 5537b726784a5294cab3937a8c6b7691, type: 2}
+  - {fileID: 11400000, guid: 17fe26553c6383c41841d2ea2ddecf62, type: 2}
+  - {fileID: 11400000, guid: 33752af1808f6f84c8d16e435930ff75, type: 2}
   upgradeUIOptions:
   - upgradeNameDisplay: {fileID: 1945742520}
     upgradeDescriptionDisplay: {fileID: 1831347256}
@@ -5709,7 +5708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1243629744}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Rect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5727,7 +5726,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 760030243}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7177,7 +7176,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -7979,7 +7978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4178cbfca370b488b9efb3198dec29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullSpeed: 300
+  pullSpeed: 200
 --- !u!1 &1766126047
 GameObject:
   m_ObjectHideFlags: 0
@@ -8332,7 +8331,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -9430,9 +9429,9 @@ RectTransform:
   - {fileID: 2032857913}
   m_Father: {fileID: 347026983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 450, y: -131.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005899626
@@ -10313,11 +10312,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1425092488}
   - {fileID: 860370691}
-  - {fileID: 274856410}
   - {fileID: 1186092738}
   - {fileID: 922135483}
-  - {fileID: 1425092488}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10394,3 +10392,5 @@ SceneRoots:
   - {fileID: 929235185}
   - {fileID: 2129243913}
   - {fileID: 760030243}
+  - {fileID: 274856410}
+  - {fileID: 1243629744}

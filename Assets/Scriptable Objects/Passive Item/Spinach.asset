@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a497b80a7d86fe14ca9ebbe74ae59a65, type: 3}
+  m_Name: Spinach
+  m_EditorClassIdentifier: 
+  icon: {fileID: 248586338, guid: 9aa8bb56f16764c4a80c7a5e7d3f7543, type: 3}
+  maxLevel: 5
+  baseStats:
+    name: Spinach
+    description: Raises inflicted damage by 10%
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 0.1
+      speed: 0
+      magnet: 0
+  growth:
+  - name: Spinach Level 2
+    description: Base damage up by 10%
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 0.1
+      speed: 0
+      magnet: 0
+  - name: Spinach Level 3
+    description: Base damage up by 10%
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 0.1
+      speed: 0
+      magnet: 0
+  - name: Spinach Level 4
+    description: Base damage up by 10%
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 0.1
+      speed: 0
+      magnet: 0
+  - name: Spinach Level 5
+    description: Base damage up by 10%
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 0.1
+      speed: 0
+      magnet: 0

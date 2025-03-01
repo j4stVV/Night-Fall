@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd59de2f3385244bbdad08552480fee, type: 3}
+  m_Name: Nero
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2018898084, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
+  name: Nero
+  startingWeapon: {fileID: 11400000, guid: a3956102b9edb6042b0bd57d708947e6, type: 2}
+  stats:
+    maxHealth: 100
+    recovery: 0
+    moveSpeed: 5
+    might: 1
+    speed: 1
+    magnet: 1.6

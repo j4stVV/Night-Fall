@@ -128,20 +128,20 @@ public class GameManager : MonoBehaviour
         WaitForEndOfFrame w = new WaitForEndOfFrame();
         float t = 0f;
         float yOffset = 0f;
+        Vector3 lastKnowPosition = target.position;
         while (t < duration)
         {
+            if (!rect) break;
+
             tmPro.color = new Color(tmPro.color.r, tmPro.color.g, tmPro.color.b, 1 - t / duration);
 
             if (target)
             {
-                yOffset += speed * Time.deltaTime;
-                rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
+                lastKnowPosition = target.position;
             }
-            else
-            {
-                // If target is dead, just pan up where the text is at.
-                rect.position += new Vector3(0, speed * Time.deltaTime, 0);
-            }
+
+            yOffset += speed * Time.deltaTime;
+            rect.position = referenceCamera.WorldToScreenPoint(lastKnowPosition + new Vector3(0, yOffset));
 
             yield return w;
             t += Time.deltaTime;
@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
         resultScreen.SetActive(true);
     }
 
-    public void AssignChosenCharacterUI(CharacterScriptableObject chosenCharacterData)
+    public void AssignChosenCharacterUI(CharacterData chosenCharacterData)
     {
         chosenCharacterImage.sprite = chosenCharacterData.Icon;
         chosenCharacterName.text = chosenCharacterData.Name;
