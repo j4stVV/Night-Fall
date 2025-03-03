@@ -64,19 +64,7 @@ public abstract class Weapon : Item
         this.data = data;
         currentStats = data.baseStats;
         movement = GetComponentInParent<PlayerMovement>();
-        currentCooldown = currentStats.cooldown;
-    }
-    protected virtual void Awake()
-    {
-        if (data) currentStats = data.baseStats;
-    }
-
-    protected virtual void Start()
-    {
-        if (data)
-        {
-            Initialise(data);
-        }
+        ActivateCooldown();
     }
 
     protected virtual void Update()
@@ -84,7 +72,7 @@ public abstract class Weapon : Item
         currentCooldown -= Time.deltaTime;
         if (currentCooldown <= 0f)
         {
-            Attack(currentStats.number);
+            Attack(currentStats.number + owner.Stats.amount);
         }
     }
 
@@ -118,11 +106,33 @@ public abstract class Weapon : Item
 
     public virtual float GetDamage()
     {
-        return currentStats.GetDamage() * owner.CurrentMight;
+        return currentStats.GetDamage() * owner.Stats.might;
+    }
+
+    public virtual float GetArea()
+    {
+        return currentStats.area * owner.Stats.area;
     }
 
     public virtual Stats GetStats()
     {
         return currentStats;
+    }
+
+    public virtual bool ActivateCooldown(bool strict = false)
+    {
+        //When strict is enable and the cooldown is not yet finished do not refesh the cooldown
+        if (strict && currentCooldown > 0)
+        {
+            return false; 
+        }
+
+        //Caculate what the cooldown is going to be, factoring in the cooldown reduction stat in the player character
+        float acctualCooldown = currentStats.cooldown * Owner.Stats.cooldown;
+
+        //Limit the maximum cooldown to the actual cooldown, so cannot increase the cooldown above 
+        //the cooldonwn stat if we accidentally call this function multi time
+        currentCooldown = Mathf.Min(acctualCooldown, currentCooldown + acctualCooldown);
+        return true;
     }
 }

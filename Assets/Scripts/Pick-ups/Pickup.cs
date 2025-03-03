@@ -1,21 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour, ICollectible
+public class Pickup : MonoBehaviour
 {
-    protected bool hasBeenCollected = false;
+    public float lifespan = 0.5f;
+    protected PlayerStats target;
+    protected float speed;
+    Vector2 initialPosition;
 
-    public virtual void Collect()
+    [System.Serializable]
+    public struct BobbingAnimation
     {
-        hasBeenCollected = true;
+        public float frequency;
+        public Vector2 direction;
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public BobbingAnimation bobbingAnimation = new BobbingAnimation
     {
-        if (col.CompareTag("Player"))
+        frequency = 2f,
+        direction = new Vector2(0, 0.3f)
+    };
+
+    [Header("Bonus")]
+    public int exprience;
+    public int health;
+
+    protected virtual void Start()
+    {
+        initialPosition = transform.position;    
+    }
+
+    protected virtual void Update()
+    {
+        if (target)
         {
-            Destroy(gameObject);
+            Vector2 distance = target.transform.position - transform.position;
+            if (distance.sqrMagnitude > speed * speed * Time.deltaTime)
+            {
+                transform.position += (Vector3)distance.normalized * speed * Time.deltaTime;
+            }
+            else 
+                Destroy(gameObject);
         }
+        else
+        {
+            transform.position = initialPosition + bobbingAnimation.direction * Mathf.Sin(Time.time * bobbingAnimation.frequency);
+        }
+    }
+    public virtual bool Collect(PlayerStats target, float speed, float lifespan = 0f)
+    {
+        if (!this.target)
+        {
+            this.target = target;
+            this.speed = speed;
+            if (lifespan > 0f) this.lifespan = lifespan;
+            Destroy(gameObject, Mathf.Max(0.01f, this.lifespan));
+            return true;
+        }
+        return false;
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (!target) return;
+        if (exprience != 0) target.IncreaseExperience(exprience);
+        if (health != 0) target.RestoreHealth(health);
     }
 }

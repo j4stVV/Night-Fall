@@ -39,7 +39,7 @@ MonoBehaviour:
     piercing: 1
     maxInstances: 70
   linearGrowth:
-  - name: Knife Level 2
+  - name: Level 2
     description: Fires 1 more projectile
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
-  - name: Knife Level 3
+  - name: Level 3
     description: Fires 1 more projectile. Base Damage up to 5
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -83,7 +83,7 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
-  - name: Knife Level 4
+  - name: Level 4
     description: Fires 1 more projectile
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
     number: 1
     piercing: 0
     maxInstances: 0
-  - name: Knife Level 5
+  - name: Level 5
     description: Passes through 1 more enemy
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
     number: 0
     piercing: 1
     maxInstances: 0
-  - name: Knife Level 6
+  - name: Level 6
     description: Fires 1 more projectile
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}

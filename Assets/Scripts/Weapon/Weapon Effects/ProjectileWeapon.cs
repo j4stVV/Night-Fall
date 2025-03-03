@@ -35,7 +35,7 @@ public class ProjectileWeapon : Weapon
         if (!currentStats.projectilePrefab)
         {
             Debug.LogWarning(string.Format("Projectile prebab has not been set for {0}", name));
-            currentCooldown = data.baseStats.cooldown;
+            ActivateCooldown();
             return false;
         }
 
@@ -54,12 +54,9 @@ public class ProjectileWeapon : Weapon
 
         prefab.weapon = this;
         prefab.owner = owner;
-         
+
         //reset the cooldown only if this attack was triggered by cooldown
-        if (currentCooldown <= 0)
-        {
-            currentCooldown += currentStats.cooldown;
-        }
+        ActivateCooldown();
         attackCount--;
 
         if (attackCount > 0)

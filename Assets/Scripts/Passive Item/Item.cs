@@ -8,6 +8,8 @@ public abstract class Item : MonoBehaviour
 
     protected PlayerStats owner;
 
+    public PlayerStats Owner {  get { return owner; } }
+
     public virtual void Initialise(ItemData data)
     {
         maxLevel = data.maxLevel;

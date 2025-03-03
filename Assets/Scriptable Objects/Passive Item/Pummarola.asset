@@ -25,7 +25,7 @@ MonoBehaviour:
       speed: 0
       magnet: 0
   growth:
-  - name: Pummarola Level 2
+  - name: Level 2
     description: Health recovery increases by 0.2 HP per second
     boosts:
       maxHealth: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: Pummarola Level 3
+  - name: Level 3
     description: Health recovery increases by 0.2 HP per second
     boosts:
       maxHealth: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: Pummarola Level 4
+  - name: Level 4
     description: Health recovery increases by 0.2 HP per second
     boosts:
       maxHealth: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: Pummarola Level 5
+  - name: Level 5
     description: Health recovery increases by 0.2 HP per second
     boosts:
       maxHealth: 0

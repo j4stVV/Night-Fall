@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
         Destroy(textObj, duration);
 
         textObj.transform.SetParent(Instance.damageTextCanvas.transform);
+        textObj.transform.SetSiblingIndex(0);
 
         WaitForEndOfFrame w = new WaitForEndOfFrame();
         float t = 0f;
@@ -228,7 +229,7 @@ public class GameManager : MonoBehaviour
         levelReachedDisplay.text = levelReachedData.ToString();
     }
 
-    public void AssignChosenWeaponsAndPassiveItemsUI(List<Image> chosenWeaponsData, List<Image> chosenPassiveItemsData)
+    public void AssignChosenWeaponsAndPassiveItemsUI(List<PlayerInventory.Slot> chosenWeaponsData, List<PlayerInventory.Slot> chosenPassiveItemsData)
     {
         if (chosenWeaponsData.Count != chosenWeaponsUI.Count || chosenPassiveItemsData.Count != chosenPassiveItemsUI.Count)
         {
@@ -239,10 +240,10 @@ public class GameManager : MonoBehaviour
         //Assign chosen weapons data to chosen weapons UI
         for (int i = 0; i < chosenWeaponsUI.Count; i++)
         {
-            if (chosenWeaponsData[i].sprite)
+            if (chosenWeaponsData[i].image.sprite)
             {
                 chosenWeaponsUI[i].enabled = true;
-                chosenWeaponsUI[i].sprite = chosenWeaponsData[i].sprite;
+                chosenWeaponsUI[i].sprite = chosenWeaponsData[i].image.sprite;
             }
             else
             {
@@ -252,10 +253,10 @@ public class GameManager : MonoBehaviour
         //Assign chosen passive items data to chosen passive items UI
         for (int i = 0; i < chosenPassiveItemsUI.Count; i++)
         {
-            if (chosenPassiveItemsData[i].sprite)
+            if (chosenPassiveItemsData[i].image.sprite)
             {
                 chosenPassiveItemsUI[i].enabled = true;
-                chosenPassiveItemsUI[i].sprite = chosenPassiveItemsData[i].sprite;
+                chosenPassiveItemsUI[i].sprite = chosenPassiveItemsData[i].image.sprite;
             }
             else
             {

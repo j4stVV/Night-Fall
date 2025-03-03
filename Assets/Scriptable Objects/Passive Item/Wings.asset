@@ -25,7 +25,7 @@ MonoBehaviour:
       speed: 0
       magnet: 0
   growth:
-  - name: Wings Level 2
+  - name: Level 2
     description: Movement speed increases by 10%
     boosts:
       maxHealth: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: Wings Level 3
+  - name: Level 3
     description: Movement speed increases by 10%
     boosts:
       maxHealth: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: Wings Level 4
+  - name: Level 4
     description: Movement speed increases by 10%
     boosts:
       maxHealth: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: Wings Level 5
+  - name: Level 5
     description: Movement speed increases by 10%
     boosts:
       maxHealth: 0

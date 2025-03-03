@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.AssemblyQualifiedNameParser;
+using UnityEditorInternal;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -22,10 +23,11 @@ public class Projectile : WeaponEffect
         if (rb.bodyType == RigidbodyType2D.Dynamic)
         {
             rb.angularVelocity = rotationSpeed.z;
-            rb.velocity = transform.right * stats.speed;
+            rb.velocity = transform.right * stats.speed * weapon.Owner.Stats.speed;
         }
 
-        float area = stats.area == 0 ? 1 : stats.area;
+        float area = weapon.GetArea();
+        if (area <= 0) area = 1;
         transform.localScale = new Vector3(
             area * Mathf.Sign(transform.localScale.x),
             area * Mathf.Sign(transform.localScale.y), 1
@@ -69,7 +71,7 @@ public class Projectile : WeaponEffect
         if (rb.bodyType == RigidbodyType2D.Kinematic)
         {
             Weapon.Stats stats = weapon.GetStats();
-            transform.position += transform.right * stats.speed * Time.fixedDeltaTime;
+            transform.position += transform.right * stats.speed * weapon.Owner.Stats.speed * Time.fixedDeltaTime;
             rb.MovePosition(transform.position);
             transform.Rotate(rotationSpeed * Time.fixedDeltaTime);
         }

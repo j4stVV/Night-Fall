@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5723816503387932672}
   - component: {fileID: 1997222720832490794}
   - component: {fileID: 228974756581176045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -184,6 +184,9 @@ MonoBehaviour:
   currentHealth: 0
   currentDamage: 0
   despawnDistance: 20
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageFlashDuration: 0.2
+  deathFadeTime: 0.6
 --- !u!114 &228974756581176045
 MonoBehaviour:
   m_ObjectHideFlags: 0
