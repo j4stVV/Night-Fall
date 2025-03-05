@@ -16,7 +16,6 @@ public class EnemyStats : MonoBehaviour
     [HideInInspector]
     public float currentDamage;
 
-    public float despawnDistance = 20f;
     Transform player;
 
     [Header("Damage Feedback")]
@@ -27,8 +26,12 @@ public class EnemyStats : MonoBehaviour
     SpriteRenderer sr;
     EnemyMovement movement;
 
+    public static int count;
+
     private void Awake()
     {
+        count++;
+
         currentMoveSpeed = enemyData.MoveSpeed;
         currentHealth = enemyData.MaxHealth;
         currentDamage = enemyData.Damage;
@@ -41,14 +44,6 @@ public class EnemyStats : MonoBehaviour
         originalColor = sr.color;
 
         movement = GetComponent<EnemyMovement>();
-    }
-
-    void Update()
-    {
-        if (Vector2.Distance(transform.position, player.position) >= despawnDistance)
-        {
-            ReturnEnemy();
-        }
     }
 
     public void TakeDamage(float damage, Vector2 sourcePosition, float knockbackForce = 5f, float knockbackDuration = 0.2f)
@@ -82,7 +77,9 @@ public class EnemyStats : MonoBehaviour
 
     public void Death()
     {
-        Destroy(gameObject);
+        DropRateManager drops = GetComponent<DropRateManager>();
+        if (drops) drops.active = true;
+        StartCoroutine(DeathFade());
     }
 
     IEnumerator DeathFade()
@@ -112,17 +109,10 @@ public class EnemyStats : MonoBehaviour
 
     private void OnDestroy()
     {
+        count--;
         if (!gameObject.scene.isLoaded)
         {
             return;
         }
-        EnemySpawner es = FindObjectOfType<EnemySpawner>();
-        es.OnEnemyKilled();
-    }
-
-    void ReturnEnemy()
-    {
-        EnemySpawner es = FindObjectOfType<EnemySpawner>();
-        transform.position = player.position + es.relativesSpawnPoints[Random.Range(0, es.relativesSpawnPoints.Count)].position;
     }
 }

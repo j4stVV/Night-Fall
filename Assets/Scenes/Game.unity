@@ -373,6 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89383156}
   - component: {fileID: 89383155}
+  - component: {fileID: 89383157}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -387,7 +388,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89383154}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c526e0c9c2dbd914687a6b8c4ec0fb0d, type: 3}
   m_Name: 
@@ -473,6 +474,25 @@ Transform:
   - {fileID: 1542325944}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89383157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89383154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0a03966f0bd4c41b46bcc536352fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+  - {fileID: 11400000, guid: 48a042b222bb78f40b031eec2cb69dc5, type: 2}
+  - {fileID: 11400000, guid: d5314ef8434dc5a448d6eb8f0f92637a, type: 2}
+  - {fileID: 11400000, guid: 2d730b5bc4617574bb0e524851081d3d, type: 2}
+  - {fileID: 11400000, guid: e293df1952a32bf4f893fcaa671a59e6, type: 2}
+  referenceCamera: {fileID: 519420031}
+  maximumEnemyCount: 300
 --- !u!1 &92466035
 GameObject:
   m_ObjectHideFlags: 0
