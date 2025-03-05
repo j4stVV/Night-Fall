@@ -29,22 +29,13 @@ public class LighningWeapon : ProjectileWeapon
             currentAttackCount = attackCount;
         }
 
-        //Find enemy in the map to strike with lighning
-        /*EnemyStats target = PickEnemy();
-
-        if (target)
-        {
-            DamageArea(target.transform.position, currentStats.area, GetDamage());
-
-            Instantiate(currentStats.hitEffect, target.transform.position, Quaternion.identity);
-        }*/
         Collider2D[] monstersColliders = GetMonsterColliders();
         Transform closestEnemy = GetClosestEnemy(monstersColliders);
         if (closestEnemy != null)
         {
+            Instantiate(currentStats.hitEffect, closestEnemy.transform.position, Quaternion.identity);
             DamageArea(closestEnemy.transform.position, GetArea(), GetDamage());
 
-            Instantiate(currentStats.hitEffect, closestEnemy.transform.position, Quaternion.identity);
         }
         if (attackCount > 0)
         {
@@ -54,33 +45,6 @@ public class LighningWeapon : ProjectileWeapon
 
         return true;
     }
-
-    /*EnemyStats PickEnemy()
-    {
-        EnemyStats target = null;
-        while (!target && allSelectedEnemies.Count > 0)
-        {
-            int idx = Random.Range(0, allSelectedEnemies.Count);
-            target = allSelectedEnemies[idx];
-
-            if (!target)
-            {
-                allSelectedEnemies.RemoveAt(idx);
-                continue;
-            }
-
-            Renderer r = target.GetComponent<Renderer>();
-            if (!r || !r.isVisible)
-            {
-                allSelectedEnemies.Remove(target);
-                target = null;
-                continue;
-            }
-        }
-
-        allSelectedEnemies.Remove(target);
-        return target;
-    }*/
 
     private Collider2D[] GetMonsterColliders()
     {
@@ -126,8 +90,5 @@ public class LighningWeapon : ProjectileWeapon
                 enemy.TakeDamage(damage, transform.position);
             }
         }
-
     }
-
-    
 }

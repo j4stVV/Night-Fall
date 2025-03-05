@@ -18,7 +18,7 @@ MonoBehaviour:
   baseStats:
     name: Axe
     description: High damage, high Area scaling
-    projectilePrefab: {fileID: 8358048423459045559, guid: 22a04381e10050a4d819b83b06df50ec, type: 3}
+    projectilePrefab: {fileID: 4591877781655956081, guid: 22a04381e10050a4d819b83b06df50ec, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
     spawnVariance:
