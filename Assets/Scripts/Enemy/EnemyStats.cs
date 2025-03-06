@@ -6,14 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyStats : MonoBehaviour
 {
-    public EnemyScriptableObjects enemyData;
-
     //Current stats
-    [HideInInspector]
     public float currentMoveSpeed;
-    [HideInInspector]
     public float currentHealth;
-    [HideInInspector]
     public float currentDamage;
 
     Transform player;
@@ -31,10 +26,6 @@ public class EnemyStats : MonoBehaviour
     private void Awake()
     {
         count++;
-
-        currentMoveSpeed = enemyData.MoveSpeed;
-        currentHealth = enemyData.MaxHealth;
-        currentDamage = enemyData.Damage;
     }
 
     void Start()

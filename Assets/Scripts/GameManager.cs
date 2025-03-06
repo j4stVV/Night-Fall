@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
 
     public bool choosingUpgrade { get { return currentState == GameState.LevelUp; }}
 
+    public float GetElapsedTime() { return stopwatchTime; }
+
     void Awake()
     {
         if (Instance == null)

@@ -9,6 +9,7 @@ using UnityEngine;
 public class UIStatsDisplay : MonoBehaviour
 {
     public PlayerStats player;
+    public CharacterData character;
     public bool displayCurrentHealth = false;
     public bool updateInEditor = false;
     TextMeshProUGUI statNames, statValues;
@@ -23,9 +24,16 @@ public class UIStatsDisplay : MonoBehaviour
         if (updateInEditor) UpdateStatField();
     }
 
+    public CharacterData.Stats GetDisplayedStats()
+    {
+        if (player) return player.Stats;
+        else if (character) return character.stats;
+        return new CharacterData.Stats();
+    }
+
     public void UpdateStatField()
     {
-        if (!player) return;
+        if (!player && !character) return;
 
         if (!statNames) statNames = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         if (!statValues) statValues = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -46,7 +54,7 @@ public class UIStatsDisplay : MonoBehaviour
             names.AppendLine(field.Name);
 
             //Get the stats values
-            object val = field.GetValue(player.Stats);
+            object val = field.GetValue(GetDisplayedStats());
             float fval = val is int ? (int)val : (float)val;
 
             PropertyAttribute attribute = (PropertyAttribute)PropertyAttribute.GetCustomAttribute(field, typeof(PropertyAttribute));

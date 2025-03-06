@@ -13,6 +13,13 @@ public class CharacterData : ScriptableObject
     [SerializeField] private new string name;
     public string Name { get => name; private set => name = value; }
 
+    [SerializeField] private string fullName;
+    public string FullName { get => fullName; private set => fullName = value; }
+
+    [SerializeField]
+    [TextArea] private string characterDescription;
+    public string CharacterDescription { get => characterDescription; private set => characterDescription = value; }
+
     [SerializeField] private WeaponData startingWeapon;
     public WeaponData StartingWeapon { get => startingWeapon; private set => startingWeapon = value; }
 

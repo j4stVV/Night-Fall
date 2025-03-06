@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour
     public int maximumEnemyCount = 300;
     float spawnTimer;
     float currentWaveDuration = 0f;
+
     public static SpawnManager Instance;
 
     private void Start()
@@ -27,11 +28,12 @@ public class SpawnManager : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         currentWaveDuration += Time.deltaTime;
 
-        if (spawnTimer < 0f )
+        if (spawnTimer <= 0f)
         {
             if (HasWaveEnded())
             {
                 currentWaveIndex++;
+                Debug.Log(string.Format("Wave Index {0}", currentWaveIndex));
                 currentWaveDuration = currentWaveSpawnCount = 0;
 
                 if (currentWaveIndex >= data.Length)

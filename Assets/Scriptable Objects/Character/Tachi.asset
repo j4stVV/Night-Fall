@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd59de2f3385244bbdad08552480fee, type: 3}
   m_Name: Tachi
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 2018898084, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
   name: Tachi
+  fullName: 
+  characterDescription: 
   startingWeapon: {fileID: 11400000, guid: 579ea526ebadde443ae38a59fe226d3e, type: 2}
   stats:
     maxHealth: 80

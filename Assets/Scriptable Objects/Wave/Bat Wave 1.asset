@@ -22,6 +22,6 @@ MonoBehaviour:
   duration: 60
   startingCount: 10
   totalSpawns: 100
-  exitConditions: -1
-  mustKillAll: 0
+  exitConditions: 1
+  mustKillAll: 1
   spawnCount: 0

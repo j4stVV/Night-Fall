@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7751540053153657893
+--- !u!1 &7365537236240029154
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,27 +8,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6072751674272535254}
-  - component: {fileID: 7009887800331424064}
-  - component: {fileID: 2289399320762371905}
-  - component: {fileID: 5627507148180107325}
-  - component: {fileID: 5723816503387932672}
-  - component: {fileID: 1997222720832490794}
-  - component: {fileID: 228974756581176045}
+  - component: {fileID: 5453047874466880017}
+  - component: {fileID: 2812523817765148228}
+  - component: {fileID: 7766736053679455920}
+  - component: {fileID: 1196765410769953325}
+  - component: {fileID: 5216418822393539333}
+  - component: {fileID: 3649766068889482516}
+  - component: {fileID: 7668453926270630396}
   m_Layer: 7
-  m_Name: Red Bat
+  m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6072751674272535254
+--- !u!4 &5453047874466880017
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751540053153657893}
+  m_GameObject: {fileID: 7365537236240029154}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -37,13 +37,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7009887800331424064
+--- !u!212 &2812523817765148228
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751540053153657893}
+  m_GameObject: {fileID: 7365537236240029154}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 150880489
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1933549225, guid: 7f190caac6f170f4e8b718e6d383685d, type: 3}
-  m_Color: {r: 0.8490566, g: 0.37006047, b: 0.37006047, a: 1}
+  m_Sprite: {fileID: 1620142699, guid: a7dd90e4b92169f48b69fa4cf97f1a14, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,17 +89,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2289399320762371905
+--- !u!95 &7766736053679455920
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751540053153657893}
+  m_GameObject: {fileID: 7365537236240029154}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 42202d023cd938b4c9de82b90de12274, type: 2}
+  m_Controller: {fileID: 22100000, guid: 491f8b96dcd73474cb94e1c4806da3bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -110,13 +110,61 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &5627507148180107325
+--- !u!114 &1196765410769953325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7365537236240029154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc567d1a5d3bf749a552a8aa91865bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outOffFrameAction: 1
+--- !u!114 &5216418822393539333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7365537236240029154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bce83a827d0f2f49bdc83cf49b170bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoveSpeed: 2
+  currentHealth: 20
+  currentDamage: 8
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageFlashDuration: 0.2
+  deathFadeTime: 0.6
+--- !u!114 &3649766068889482516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7365537236240029154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9e79a0646ae90438818a22e8709402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  drops:
+  - name: Blue Gem
+    itemPrefab: {fileID: 7830596570744236688, guid: 7a1e8a0a0e7b0c84d81982c409faefd5, type: 3}
+    dropRate: 30
+--- !u!61 &7668453926270630396
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751540053153657893}
+  m_GameObject: {fileID: 7365537236240029154}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -142,64 +190,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.014462918, y: -0.21694337}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.84375, y: 0.6875}
+    oldSize: {x: 0.8888889, y: 1.7777778}
     newSize: {x: 0.84375, y: 0.6875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96875, y: 0.65625}
+  m_Size: {x: 0.8503211, y: 1.3824587}
   m_EdgeRadius: 0
---- !u!114 &5723816503387932672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751540053153657893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dc567d1a5d3bf749a552a8aa91865bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outOffFrameAction: 1
---- !u!114 &1997222720832490794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751540053153657893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bce83a827d0f2f49bdc83cf49b170bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMoveSpeed: 1.5
-  currentHealth: 15
-  currentDamage: 7
-  damageColor: {r: 1, g: 0, b: 0, a: 1}
-  damageFlashDuration: 0.2
-  deathFadeTime: 0.6
---- !u!114 &228974756581176045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751540053153657893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc9e79a0646ae90438818a22e8709402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
-  drops:
-  - name: Gem
-    itemPrefab: {fileID: 7830596570744236688, guid: 7a1e8a0a0e7b0c84d81982c409faefd5, type: 3}
-    dropRate: 50
