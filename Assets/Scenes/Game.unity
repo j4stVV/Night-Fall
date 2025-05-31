@@ -426,6 +426,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a35e1a267c4798449a6bea1709f8c02b, type: 2}
   referenceCamera: {fileID: 519420031}
   maximumEnemyCount: 300
+  boostedByCurse: 1
 --- !u!114 &89383158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3632,7 +3633,6 @@ MonoBehaviour:
   - {fileID: 454480595}
   timeLimit: 6000
   stopwatchDisplay: {fileID: 274856408}
-  playerObject: {fileID: 1151722861}
 --- !u!4 &760030243
 Transform:
   m_ObjectHideFlags: 0
@@ -9997,7 +9997,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menu
+          m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2094501448
