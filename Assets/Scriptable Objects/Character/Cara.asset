@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2018898084, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
   name: Cara
-  fullName: 
-  characterDescription: 
+  fullName: Cara Lara
+  characterDescription: Permanent +25% Pickup radius and -30 Max Health.
   startingWeapon: {fileID: 11400000, guid: b2a3ef0d9c8874849929192b62e2040e, type: 2}
   stats:
-    maxHealth: 100
+    maxHealth: 70
     recovery: 1
     armor: 0
     moveSpeed: 1
@@ -32,5 +32,5 @@ MonoBehaviour:
     growth: 1
     greed: 1
     curse: 1
-    magnet: 1.6
+    magnet: 2
     revival: 0

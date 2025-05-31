@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2018898084, guid: 25e7807c01ab145498dd72bb9a0e3ce9, type: 3}
   name: Ken
-  fullName: 
-  characterDescription: 
+  fullName: Kentaro
+  characterDescription: Gains 10% more damage every 10 levels (max +50%).
   startingWeapon: {fileID: 11400000, guid: df7a39f3cc926ef4c85aa7209bf7cf1a, type: 2}
   stats:
-    maxHealth: 100
+    maxHealth: 120
     recovery: 1
-    armor: 0
+    armor: 1
     moveSpeed: 1
     might: 1
     area: 1
