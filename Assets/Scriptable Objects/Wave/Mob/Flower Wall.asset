@@ -20,7 +20,7 @@ MonoBehaviour:
   probability: 1
   luckFactor: 1
   activeAfter: 0
-  spawnEffectPrefab: {fileID: 0}
+  spawnEffectPrefab: {fileID: 3343667331944961712, guid: 1c0a658d005d90c4298febd18d1560fb, type: 3}
   scale: {x: 1, y: 1}
   spawnRadius: 10
   lifespan: 15

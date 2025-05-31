@@ -17,6 +17,11 @@ public class PlayerStats : MonoBehaviour
         set { actualStats = value; }
     }
 
+    public CharacterData.Stats Actual
+    {
+        get { return actualStats; }
+    }
+
     float health;
 
     public float CurrentHealth

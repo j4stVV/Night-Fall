@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     float stopwatchTime;
     public TextMeshProUGUI stopwatchDisplay;
 
-    public GameObject playerObject;
+    PlayerStats[] players;
 
     public bool isGameOver { get { return currentState == GameState.GameOver; } }
 
@@ -61,8 +61,34 @@ public class GameManager : MonoBehaviour
 
     public float GetElapsedTime() { return stopwatchTime; }
 
+    public static float GetCumulativeCurse()
+    {
+        if (!Instance) return 1;
+
+        float totalCurse = 0;
+        foreach (PlayerStats p in Instance.players)
+        {
+            totalCurse += p.Actual.curse;
+        }
+        return Mathf.Max(1, 1 + totalCurse);
+    }
+
+    public static int GetCumulativeLevels()
+    {
+        if (!Instance) return 1;
+
+        int totalLevel = 0;
+        foreach (PlayerStats p in Instance.players)
+        {
+            totalLevel += p.level;
+        }
+        return Mathf.Max(1, totalLevel);
+    }
+
     void Awake()
     {
+        players = FindObjectsOfType<PlayerStats>();
+
         if (Instance == null)
         {
             Instance = this;
@@ -265,7 +291,10 @@ public class GameManager : MonoBehaviour
 
         if (stopwatchTime >= timeLimit)
         {
-            playerObject.SendMessage("Death");
+            foreach (PlayerStats p in players)
+            {
+                p.SendMessage("Kill");
+            }
         }
     }
 
@@ -286,7 +315,10 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             levelUpScreen.SetActive(true);
-            playerObject.SendMessage("RemoveAndApplyUpgrades");
+            foreach (PlayerStats p in players)
+            {
+                p.SendMessage("RemoveAndApplyUpgrades");
+            }
         }
     }
 

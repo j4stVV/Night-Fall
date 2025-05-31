@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outOffFrameAction: 0
+  knockbackVariance: 2
 --- !u!114 &5443375350306803993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,9 +181,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bce83a827d0f2f49bdc83cf49b170bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoveSpeed: 0.5
-  currentHealth: 10
-  currentDamage: 5
+  baseStats:
+    maxHealth: 30
+    moveSpeed: 0.6
+    damage: 5
+    knockbackMultiplier: 0
+    resistances:
+      freeze: 0
+      kill: 0
+      debuff: 0
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.2
   deathFadeTime: 0.6

@@ -6,12 +6,65 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyStats : MonoBehaviour
 {
-    //Current stats
-    public float currentMoveSpeed;
-    public float currentHealth;
-    public float currentDamage;
+    [System.Serializable]
+    public struct Resistances
+    {
+        [Range(0f, 1f)] public float freeze, kill, debuff;
 
-    Transform player;
+        public static Resistances operator *(Resistances r, float factor)
+        {
+            r.freeze = Mathf.Min(1, r.freeze * factor);
+            r.kill = Mathf.Min(1, r.kill * factor);
+            r.debuff = Mathf.Min(1, r.debuff * factor);
+            return r;
+        }
+    }
+
+    [System.Serializable]
+    public struct Stats
+    {
+        [Min(0)] public float maxHealth, moveSpeed, damage, knockbackMultiplier;
+        public Resistances resistances;
+
+        [System.Flags]
+        public enum Boostable {
+            health = 1,
+            moveSpeed = 2,
+            damage = 4,
+            knockbackMultiplier = 8,
+            resistances = 16
+        } 
+        public Boostable curseBoosts, levelBoosts;
+
+        private static Stats Boost(Stats s1, float factor, Boostable boostable)
+        {
+            if ((boostable & Boostable.health) != 0) s1.maxHealth *= factor;
+            if ((boostable & Boostable.moveSpeed) != 0) s1.moveSpeed *= factor;
+            if ((boostable & Boostable.damage) != 0) s1.damage *= factor;
+            if ((boostable & Boostable.knockbackMultiplier) != 0) s1.knockbackMultiplier /= factor;
+            if ((boostable & Boostable.resistances) != 0) s1.resistances *= factor;
+            return s1;
+        }
+
+        public static Stats operator *(Stats s1, float factor)
+        {
+            return Boost(s1, factor, s1.curseBoosts);
+        }
+
+        public static Stats operator ^(Stats s1, float factor)
+        {
+            return Boost(s1, factor, s1.levelBoosts);
+        }
+    }
+
+    public Stats baseStats = new Stats { maxHealth = 10, moveSpeed = 1, damage = 5, knockbackMultiplier = 1 };
+    Stats actualStats;
+    public Stats Actual
+    {
+        get { return actualStats; }
+    }
+
+    float currentHealth;
 
     [Header("Damage Feedback")]
     public Color damageColor = new Color(1, 0, 0, 1);
@@ -30,17 +83,33 @@ public class EnemyStats : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<PlayerStats>().transform;    
+        RecalculateStats();
+        currentHealth = actualStats.maxHealth;
         sr = GetComponent<SpriteRenderer>();
         originalColor = sr.color;
 
         movement = GetComponent<EnemyMovement>();
     }
 
+    public void RecalculateStats()
+    {
+        float curse = GameManager.GetCumulativeCurse(),
+              level = GameManager.GetCumulativeLevels();
+        actualStats = (baseStats * curse) ^ level;
+    }
+
     public void TakeDamage(float damage, Vector2 sourcePosition, float knockbackForce = 5f, float knockbackDuration = 0.2f)
     {
         currentHealth -= damage;
         StartCoroutine(DamageFlash());
+
+        if (damage == actualStats.maxHealth)
+        {
+            if (Random.value  < actualStats.resistances.kill)
+            {
+                return;
+            }
+        }
 
         if (damage > 0)
         {
@@ -91,10 +160,9 @@ public class EnemyStats : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.collider.TryGetComponent(out PlayerStats p))
         {
-            PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
-            player.TakeDamage(currentDamage);
+            p.TakeDamage(Actual.damage);
         }
     }
 
